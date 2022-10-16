@@ -4,8 +4,8 @@ namespace demo;
 using {  API_BUSINESS_PARTNER as external } from '../srv/external/API_BUSINESS_PARTNER.csn';
 
 entity BusinessPartners as projection on external.A_BusinessPartner {
-    key BusinessPartner,
-    LastName,
-    FirstName,
-    BusinessPartnerCategory
+    key BusinessPartner as businessPartner,
+    LastName as lastName,
+    FirstName as firstName,
+    BusinessPartnerCategory as businessPartnerCategory
 }
