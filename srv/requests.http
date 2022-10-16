@@ -1,2 +1,6 @@
 ### GET Business Partner
 GET http://localhost:4004/service/demo/BusinessPartners
+
+
+### GET Business Partner Address
+GET http://localhost:4004/service/demo/BusinessPartnerAddress
