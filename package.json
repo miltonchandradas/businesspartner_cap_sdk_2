@@ -10,10 +10,12 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@sap-cloud-sdk/generator": "^2.9.0",
     "sqlite3": "^5.0.4"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "cds run",
+    "vdm": "npx generate-odata-client --inputDir srv/external --outputDir services --forceOverwrite"
   },
   "engines": {
     "node": "^16.15"
