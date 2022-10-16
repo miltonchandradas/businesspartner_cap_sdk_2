@@ -4,3 +4,16 @@ GET http://localhost:4004/service/demo/BusinessPartners
 
 ### GET Business Partner Address
 GET http://localhost:4004/service/demo/BusinessPartnerAddress
+
+
+### POST Address
+POST http://localhost:4004/service/demo/BusinessPartnerAddress
+Content-Type: application/json
+
+{   
+    "businessPartner": "1003764",
+    "postalCode": "14469",
+    "cityName": "Potsdam",
+    "streetName": "Konrad-Zuse-Ring",
+    "houseNumber": "10"
+}

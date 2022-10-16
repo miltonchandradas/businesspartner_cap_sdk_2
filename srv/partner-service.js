@@ -44,4 +44,26 @@ module.exports = (srv) => {
         url: process.env.URL,
       });
   });
+
+  srv.on("CREATE", BusinessPartnerAddress, async (req, next) => {
+    const { businessPartnerAddressApi } =
+      businessPartnerService.businessPartnerService();
+
+    const { businessPartner, postalCode, cityName, streetName, houseNumber } =
+      req.data;
+
+    const businessPartnerAddress = businessPartnerAddressApi
+      .entityBuilder()
+      .fromJson({
+        businessPartner,
+        postalCode,
+        cityName,
+        streetName,
+        houseNumber,
+      });
+    return businessPartnerAddressApi
+      .requestBuilder()
+      .create(businessPartnerAddress)
+      .execute({ url: process.env.URL });
+  });
 };
