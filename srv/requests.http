@@ -17,3 +17,17 @@ Content-Type: application/json
     "streetName": "Konrad-Zuse-Ring",
     "houseNumber": "10"
 }
+
+### PATCH Address
+PATCH http://localhost:4004/service/demo/BusinessPartnerAddress(businessPartner='1003764',addressId='28248')
+Content-Type: application/json
+
+{   
+    "businessPartner": "1003764",
+    "addressId": "28248",
+    "houseNumber": "12345"
+}
+
+
+### DELETE Address
+DELETE http://localhost:4004/service/demo/BusinessPartnerAddress(businessPartner='1003764',addressId='28249')

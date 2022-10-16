@@ -66,4 +66,36 @@ module.exports = (srv) => {
       .create(businessPartnerAddress)
       .execute({ url: process.env.URL });
   });
+
+  srv.on("UPDATE", BusinessPartnerAddress, async (req, next) => {
+    const { businessPartnerAddressApi } =
+      businessPartnerService.businessPartnerService();
+
+    const { businessPartner, addressId, houseNumber } = req.data;
+
+    const businessPartnerAddress = businessPartnerAddressApi
+      .entityBuilder()
+      .fromJson({
+        businessPartner,
+        addressId,
+        houseNumber,
+      });
+    return businessPartnerAddressApi
+      .requestBuilder()
+      .update(businessPartnerAddress)
+      .execute({ url: process.env.URL });
+  });
+
+  srv.on("DELETE", BusinessPartnerAddress, async (req, next) => {
+    const { businessPartnerAddressApi } =
+      businessPartnerService.businessPartnerService();
+
+    const { businessPartner, addressId } =
+      req.data;
+
+    return businessPartnerAddressApi
+      .requestBuilder()
+      .delete(businessPartner, addressId)
+      .execute({ url: process.env.URL });
+  });
 };
